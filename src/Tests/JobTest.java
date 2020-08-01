@@ -30,10 +30,10 @@ public class JobTest {
     public void testJobConstructorSetsAllFields() {
         assertEquals("No Match!", third_job.getId(), 1, 1);
         assertEquals("No Match!", third_job.getName(), "Product tester");
-        assertEquals("No Match", third_job.getEmployer(), "ACME");
-        assertEquals("No Match", third_job.getLocation(), "Desert");
-        assertEquals("No Match", third_job.getPositionType(), "Quality control");
-        assertEquals("No Match", third_job.getCoreCompetency(), "Persistence");
+        assertEquals("No Match", third_job.getEmployer().toString(), "ACME");
+        assertEquals("No Match", third_job.getLocation().toString(), "Desert");
+        assertEquals("No Match", third_job.getPositionType().toString(), "Quality control");
+        assertEquals("No Match", third_job.getCoreCompetency().toString(), "Persistence");
     }
 
 }
