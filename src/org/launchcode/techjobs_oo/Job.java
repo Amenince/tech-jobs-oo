@@ -47,6 +47,18 @@ public class Job {
         return Objects.hash(id);
     }
 
+    public static String jobToString(Job obj) {
+//        System.out.println("     ");
+//        System.out.println("ID: " + obj.getId());
+//        System.out.println("Name: " + obj.getName());
+//        System.out.println("Employer: " + obj.getEmployer());
+//        System.out.println("Location: " + obj.getLocation());
+//        System.out.println("Position Type: " + obj.getPositionType());
+//        System.out.println("Core Competency: " + obj.getCoreCompetency());
+//        System.out.println("     ");
+        return ("     " + "\n" + "ID: " + obj.getId() + "\n" + "     ");
+    }
+
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.

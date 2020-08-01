@@ -5,10 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.launchcode.techjobs_oo.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
-public class JobTest {
+public class JobTest extends Job {
     Job first_job;
     Job second_job;
     Job third_job;
@@ -33,16 +32,22 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields() {
         assertEquals("No Match!", third_job.getId(), 1, 1);
-        assertEquals("No Match!", third_job.getName(), "Product tester");
-        assertEquals("No Match", third_job.getEmployer().toString(), "ACME");
-        assertEquals("No Match", third_job.getLocation().toString(), "Desert");
-        assertEquals("No Match", third_job.getPositionType().toString(), "Quality control");
-        assertEquals("No Match", third_job.getCoreCompetency().toString(), "Persistence");
+        assertEquals("No Match!", "Product tester", third_job.getName());
+        assertEquals("No Match", "ACME", third_job.getEmployer().toString());
+        assertEquals("No Match", "Desert", third_job.getLocation().toString());
+        assertEquals("No Match", "Quality control", third_job.getPositionType().toString());
+        assertEquals("No Match", "Persistence", third_job.getCoreCompetency().toString());
     }
 
     @Test
     public void testJobsForEquality() {
-        assertFalse("This will fail if ID's are equal!", fourth_job.getId() == fifth_job.getId());
+        assertNotEquals("This will fail if ID's are equal!", fourth_job.getId(), fifth_job.getId());
+    }
+
+    @Test
+    public void toStringTest() {
+//        assertEquals("Formatting of jobs unsuccessful", "     " + "\n" + fifth_job + "\n" + "     ", jobToString(fifth_job));
+        assertEquals("The string should contain label for each field", "ID: " + fifth_job.getId(),jobToString(fifth_job));
     }
 
 }
