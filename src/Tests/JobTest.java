@@ -12,12 +12,16 @@ public class JobTest {
     Job first_job;
     Job second_job;
     Job third_job;
+    Job fourth_job;
+    Job fifth_job;
 
     @Before
     public void createJobObject() {
         first_job = new Job(1, "Steve", new Employer("McDonalds"), new Location("St. Louis"), new PositionType("Cook"), new CoreCompetency("Stuff"));
         second_job = new Job(1, "Bill", new Employer("Burger King"), new Location("St. Louis"), new PositionType("Manager"), new CoreCompetency("Other"));
         third_job = new Job(1,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        fourth_job = new Job(7,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        fifth_job = new Job(11,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
     }
 
@@ -34,6 +38,11 @@ public class JobTest {
         assertEquals("No Match", third_job.getLocation().toString(), "Desert");
         assertEquals("No Match", third_job.getPositionType().toString(), "Quality control");
         assertEquals("No Match", third_job.getCoreCompetency().toString(), "Persistence");
+    }
+
+    @Test
+    public void testJobsForEquality() {
+        assertFalse("This will fail if ID's are equal!", fourth_job.getId() == fifth_job.getId());
     }
 
 }
