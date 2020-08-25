@@ -1,5 +1,4 @@
 package org.launchcode.techjobs_oo;
-
 import java.util.Objects;
 
 public class Job {
@@ -47,16 +46,20 @@ public class Job {
         return Objects.hash(id);
     }
 
-    public static String jobToString(Job obj) {
-//        System.out.println("     ");
-//        System.out.println("ID: " + obj.getId());
-//        System.out.println("Name: " + obj.getName());
-//        System.out.println("Employer: " + obj.getEmployer());
-//        System.out.println("Location: " + obj.getLocation());
-//        System.out.println("Position Type: " + obj.getPositionType());
-//        System.out.println("Core Competency: " + obj.getCoreCompetency());
-//        System.out.println("     ");
-        return ("     " + "\n" + "ID: " + obj.getId() + "\n" + "     ");
+    public String toString(Job obj) {
+        if (obj.getName() == null) {
+            return "\n" + "ID: " + obj.getId() + "\n" + "Data not available" + "\n" + "Employer: " + obj.getEmployer() + "\n" + "Location: " + obj.getLocation() + "\n" + "Position Type: " + obj.getPositionType() + "\n" + "Core Competency: " + obj.getCoreCompetency() + "\n";
+        } else if (obj.getEmployer() == null) {
+            return "\n" + "ID: " + obj.getId() + "\n" + "Name: " + obj.getName() + "\n" + "Data not available" + "\n" + "Location: " + obj.getLocation() + "\n" + "Position Type: " + obj.getPositionType() + "\n" + "Core Competency: " + obj.getCoreCompetency() + "\n";
+        } else if (obj.getLocation() == null) {
+            return "\n" + "ID: " + obj.getId() + "\n" + "Name: " + obj.getName() + "\n" + "Employer: " + obj.getEmployer() + "\n" + "Data not available" + "\n" + "Position Type: " + obj.getPositionType() + "\n" + "Core Competency: " + obj.getCoreCompetency() + "\n";
+        } else if (obj.getPositionType() == null) {
+            return "\n" + "ID: " + obj.getId() + "\n" + "Name: " + obj.getName() + "\n" + "Employer: " + obj.getEmployer() + "\n" + "Location: " + obj.getLocation() + "\n" + "Data not available" + "\n" + "Core Competency: " + obj.getCoreCompetency() + "\n";
+        } else if (obj.getCoreCompetency() == null) {
+            return "\n" + "ID: " + obj.getId() + "\n" + "Name: " + obj.getName() + "\n" + "Employer: " + obj.getEmployer() + "\n" + "Location: " + obj.getLocation() + "\n" + "Position Type: " + obj.getPositionType() + "\n" + "Data not available" + "\n";
+        } else {
+            return "\n" + "ID: " + obj.getId() + "\n" + "Name: " + obj.getName() + "\n" + "Employer: " + obj.getEmployer() + "\n" + "Location: " + obj.getLocation() + "\n" + "Position Type: " + obj.getPositionType() + "\n" + "Core Competency: " + obj.getCoreCompetency() + "\n";
+        }
     }
 
 

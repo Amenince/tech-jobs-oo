@@ -13,6 +13,11 @@ public class JobTest extends Job {
     Job third_job;
     Job fourth_job;
     Job fifth_job;
+    Job sixth_job;
+    Job seventh_job;
+    Job eighth_job;
+    Job ninth_job;
+    Job tenth_job;
 
     @Before
     public void createJobObject() {
@@ -21,6 +26,11 @@ public class JobTest extends Job {
         third_job = new Job(1,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         fourth_job = new Job(7,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         fifth_job = new Job(11,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        sixth_job = new Job(10,null, new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        seventh_job = new Job(10,"Product tester", null, new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        eighth_job = new Job(10,"Product tester", new Employer("ACME"), null, new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        ninth_job = new Job(10,"Product tester", new Employer("ACME"), new Location("Desert"), null, new CoreCompetency("Persistence"));
+        tenth_job = new Job(10,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), null);
 
     }
 
@@ -46,8 +56,12 @@ public class JobTest extends Job {
 
     @Test
     public void toStringTest() {
-//        assertEquals("Formatting of jobs unsuccessful", "     " + "\n" + fifth_job + "\n" + "     ", jobToString(fifth_job));
-        assertEquals("The string should contain label for each field", "ID: " + fifth_job.getId(),jobToString(fifth_job));
+        assertEquals("The string should contain label for each field", "\n" + "ID: " + fifth_job.getId() + "\n" + "Name: " + fifth_job.getName() + "\n" + "Employer: " + fifth_job.getEmployer() + "\n" + "Location: " + fifth_job.getLocation() + "\n" + "Position Type: " + fifth_job.getPositionType() + "\n" + "Core Competency: " + fifth_job.getCoreCompetency() + "\n", toString(fifth_job));
+        assertEquals("This should test if name field is blank", "\n" + "ID: " + sixth_job.getId() + "\n" + "Data not available" + "\n" + "Employer: " + sixth_job.getEmployer() + "\n" + "Location: " + sixth_job.getLocation() + "\n" + "Position Type: " + sixth_job.getPositionType() + "\n" + "Core Competency: " + sixth_job.getCoreCompetency() + "\n", toString(sixth_job));
+        assertEquals("This should test if employer field is blank", "\n" + "ID: " + seventh_job.getId() + "\n" + "Name: " + seventh_job.getName() + "\n" + "Data not available" + "\n" + "Location: " + seventh_job.getLocation() + "\n" + "Position Type: " + seventh_job.getPositionType() + "\n" + "Core Competency: " + seventh_job.getCoreCompetency() + "\n", toString(seventh_job));
+        assertEquals("This should test if location field is blank", "\n" + "ID: " + eighth_job.getId() + "\n" + "Name: " + eighth_job.getName() + "\n" + "Employer: " + eighth_job.getEmployer() + "\n" + "Data not available" + "\n" + "Position Type: " + eighth_job.getPositionType() + "\n" + "Core Competency: " + eighth_job.getCoreCompetency() + "\n", toString(eighth_job));
+        assertEquals("This should test if position type field is blank", "\n" + "ID: " + ninth_job.getId() + "\n" + "Name: " + ninth_job.getName() + "\n" + "Employer: " + ninth_job.getEmployer() + "\n" + "Location: " + ninth_job.getLocation() + "\n" + "Data not available" + "\n" + "Core Competency: " + ninth_job.getCoreCompetency() + "\n", toString(ninth_job));
+        assertEquals("This should test if core competency field is blank", "\n" + "ID: " + tenth_job.getId() + "\n" + "Name: " + tenth_job.getName() + "\n" + "Employer: " + tenth_job.getEmployer() + "\n" + "Location: " + tenth_job.getLocation() + "\n" + "Position Type: " + tenth_job.getPositionType() + "\n" + "Data not available" + "\n", toString(tenth_job));
     }
 
 }
